@@ -24,9 +24,11 @@ void buf_scan(char **c, int buf, FILE * f) {
 void buf_reverse(char **a, int start, int end) {
     char tmp;
     for (int i = start; i <= (end)/2; i++) {
-        tmp = (*a)[i];
-        (*a)[i] = (*a)[end - i];
-        (*a)[end - i] = tmp;
+        if( (*a)[i] != (*a)[end - i]) {
+            (*a)[i]       ^= (*a)[end - i];
+            (*a)[end - i] ^= (*a)[i];
+            (*a)[i]       ^= (*a)[end - i];
+        }
     }
 }
 
