@@ -26,7 +26,7 @@ void buf_reverse(char **a, int start, int end) {
     int l = (end - start);
     if(end > start) {
         for (int i = start; i <= start + (l)/2; i++) {
-            if( (*a)[i] != (*a)[start + end - i]) { // crucial, else XOR will go all wierdo! a ^ a will give 0.
+            if( i != start + end - i) { // crucial, else XOR will go all wierdo! a ^ a will give 0.
                 (*a)[i]       ^= (*a)[start + end - i];
                 (*a)[start + end - i] ^= (*a)[i];
                 (*a)[i]       ^= (*a)[start + end - i];

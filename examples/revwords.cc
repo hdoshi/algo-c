@@ -6,7 +6,6 @@
 #define BUFFER 1024
 
 
-
 int main() {
     char *c = NULL;
     printf("Enter words to reverse: ");
@@ -21,6 +20,6 @@ int main() {
         }
     }
     printf("Reversed words: ");
-    puts(c); 
-    buf_dealloc(c); 
+    puts(c);
+    buf_dealloc(c);
 }
