@@ -17,7 +17,6 @@ struct hash {
 typedef struct hash * hashtable;
 
 
-
 hashtable hash_create(int cap) {
     hashtable h = (hash *)malloc(sizeof(hash));
     h->capacity = cap;
