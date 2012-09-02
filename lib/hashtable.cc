@@ -1,28 +1,29 @@
 #include <stdlib.h>
+#include <string.h>
 
 struct node {
     node *next;
     char *key;
     void *value;
-}
+};
 
 typedef node** elements;
 
 struct hash {
     elements el;
     int capacity;
-}
+};
 
 typedef struct hash * hashtable;
 
 
 
 hashtable hash_create(int cap) {
-    hashtable = (hash *)malloc(sizeof(hash));
-    hashtable->capacity = cap;
-    hashtable->el = (node **)malloc(cap*(sizeof(node *)));
+    hashtable h = (hash *)malloc(sizeof(hash));
+    h->capacity = cap;
+    h->el = (node **)malloc(cap*(sizeof(node *)));
     for (int i = 0; i < cap; i++) {
-        hashtable->el[i] = NULL;
+        h->el[i] = NULL;
     }
 }
 
@@ -53,7 +54,7 @@ int hash_put(hashtable h, const char *key, void *value) {
         current = (node *)malloc(sizeof(node));
         previous->next = current;
     }
-    current->key = key;
+    strncpy(current->key, key, strlen(key));
     current->value = value;    
 }
 
