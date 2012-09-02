@@ -52,7 +52,9 @@ int hash_put(hashtable h, const char *key, void *value) {
     }
     if(!current) {
         current = (node *)malloc(sizeof(node));
-        previous->next = current;
+    	if(previous) {
+	    previous->next = current;
+	}
     }
     strncpy(current->key, key, strlen(key));
     current->value = value;    
