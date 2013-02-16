@@ -2,85 +2,93 @@
 #include <stdlib.h>
 
 /*
-  Input
-    0->1->2->3->4->5..
-  Output
-    1->0->3->2->5->4...
+    Swap Nodes of a Linked List as below
+
+    Input
+        0->1->2->3->4->5..
+    Output
+        1->0->3->2->5->4...
 */
 
 
 
 struct node {
-  node *next;
-  int i;
+    node *next;
+    int i;
 };
 
 typedef node * link;
 
 link create_node() {
-  link tmp = (link)malloc(sizeof(node *));
-  return tmp;
+    link tmp = (link)malloc(sizeof(node *));
+    return tmp;
+}
 
+
+void print_list(link head) {
+
+    link c = head;
+    while (c) {
+        printf("%d",c->i);
+        if (c->next)
+            printf("->",c->i);
+        c = c->next;
+    }
 }
 
 int main() {
 
-  link head, p, t;
-  for (int i = 0; i < 10; i++) {
-    t = create_node();
-    t->i = i;
-    if (i == 0) {
-      head = t;
+    link head = NULL, p = NULL, t = NULL;
+    int n;
+    printf("Enter size of linked list : ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        t = create_node();
+        t->i = i;
+        if (i == 0) {
+            head = t;
+        }
+        if(p) {
+            p->next = t;
+        }
+        p = t;
     }
-    if(p) {
-      p->next = t;
+
+    print_list(head);
+    printf("\n");
+
+    link a = head;
+    link tmp, previous = NULL;
+    link b, c;
+    int j = 0;
+
+    while(a && a->next) {
+        b = a->next;
+        c = b->next;
+        b->next = a;
+        a->next = c;
+        if(previous) {
+            previous->next = b;
+        }
+        previous = a;
+        a = c;
+
+        if(j == 0 ) {
+            head = b;
+        }
+        j++;
     }
-    p = t;
-  }
-  link c = head;
-  while (c) {
-    printf("%d->",c->i);
-    c = c->next;
-  }
 
-  printf("\n");
-
-  link a = head;
-  link tmp, previous = NULL;
-  link b;
-  int j = 0;
-  while(a) {
-    //              b = a->next;
-    //              a->next = previous;
-    //             previous = a;
-    //              a = b;
-
-    b = a->next;
-    c = b->next;
-
-    b->next = a;
-    if(previous) { previous->next = b;}
-    a->next = c;
-
-    if(j == 0 ) { head = b;} j++;
-    previous = a;
-    a = c;
-
-  }
-  c = head;
-  while (c) {
-    printf("%d->",c->i);
-    c = c->next;
-  }
-
-
-
+    print_list(head);
 }
+
+
 /*
-  while (current) {
-  next = current->next;
-  current->next = previous;
-  previous = current;
-  current = next;
-  }
-  */
+// Reverse a Linked List
+while (current) {
+next = current->next;
+current->next = previous;
+previous = current;
+current = next;
+}
+*/
