@@ -15,7 +15,6 @@ struct res {
   double cost;
 };
 
-
 // paths[i][j][s].cost = max(paths[i][k][1].cost * paths[k][j][s-1].cost, paths[i][j][s].cost)
 
 int main() {
@@ -39,7 +38,6 @@ int main() {
         paths[1][i][j].path.push_back(j);
       }
     }
-
 
     for (int steps = 2; steps < n + 1; steps++) {
       for (int i = 0; i < n; i++) {
@@ -89,7 +87,4 @@ int main() {
   }
   return 0;
 }
-
-
-
 
