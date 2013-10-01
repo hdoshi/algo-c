@@ -21,6 +21,7 @@ typedef node * link;
 
 link create_node() {
     link tmp = (link)malloc(sizeof(node *));
+    tmp->next = NULL;
     return tmp;
 }
 
@@ -53,7 +54,6 @@ int main() {
         }
         p = t;
     }
-
     print_list(head);
     printf("\n");
 
