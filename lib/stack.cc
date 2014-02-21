@@ -6,15 +6,16 @@
 
 struct StackNode {
     int capacity;
-    void ** elements;   
+    void ** elements;
     int top;
 };
 
 Stack  stack_create(int cap) {
-    Stack s = (Stack) malloc(sizeof(StackNode));   
+    Stack s = (Stack) malloc(sizeof(StackNode));
+    //Stack s = malloc(sizeof(StackNode));
     s->elements = (void **) malloc(cap * sizeof(void *));
     s->capacity = cap;
-    return s; 
+    return s;
 }
 
 int stack_push (Stack s, void *el) {
@@ -51,4 +52,4 @@ void stack_destroy (Stack s) {
 
 
 
- 
+

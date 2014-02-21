@@ -4,26 +4,31 @@ BITMANIP=examples/bitmanip.c
 INFIX=examples/infix.cc
 SWAPNODES=examples/swapNodes.cc
 TOPO=examples/topo.cc
+PBTREE=examples/print_btree.cc
 INCLUDE=-Iincludes
-all: revwords bitmanip infix swapnodes graph_ex
+all: revwords bitmanip infix swapnodes topo pbtree
 
 clean:
 	rm -rf run*
 	rm -f *.o run*
 
 revwords: $(UTIL) $(REVWORDS)
-	g++  -o run-revwords $(UTIL) $(REVWORDS) -g  $(INCLUDE)
+	g++ -std=c++0x -o run-revwords $(UTIL) $(REVWORDS) -g  $(INCLUDE)
 
 bitmanip: $(UTIL) $(BITMANIP)
-	g++  -o run-bitmanip $(UTIL) $(BITMANIP) -g  $(INCLUDE)
+	g++ -std=c++0x  -o run-bitmanip $(UTIL) $(BITMANIP) -g  $(INCLUDE)
 
 infix: $(UTIL) $(INFIX)
-	g++  -o run-infix $(UTIL) $(INFIX) -g  $(INCLUDE)
+	g++ -std=c++0x  -o run-infix $(UTIL) $(INFIX) -g  $(INCLUDE)
 
 swapnodes: $(UTIL) $(SWAPNODES)
-	g++  -o run-swapnodes $(UTIL) $(SWAPNODES) -g  $(INCLUDE)
+	g++ -std=c++0x  -o run-swapnodes $(UTIL) $(SWAPNODES) -g  $(INCLUDE)
 
-topo: $(UTIL) $(topo)
-	g++  -o topo $(UTIL) $(GRAPH_EX) -g $(INCLUDE)
+topo: $(UTIL) $(TOPO)
+	g++ -std=c++0x  -o run-topo $(UTIL) $(TOPO) -g $(INCLUDE)
+
+pbtree: $(UTIL) $(PBTREE)
+	g++ -std=c++0x  -o run-pbtree $(UTIL) $(PBTREE) -g $(INCLUDE)
+
 
 .PHONY: all clean

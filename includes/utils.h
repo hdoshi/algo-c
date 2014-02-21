@@ -34,3 +34,13 @@ void print_graph(graph g);
 void add_edge(graph g, int v, int w);
 void free_graph(graph g);
 
+
+struct bn {
+  int v;
+  struct bn *left;
+  struct bn *right;
+};
+
+typedef struct bn *bnode;
+bnode init_btree();
+void free_btree(bnode);

@@ -47,7 +47,7 @@ void * queue_delete(Queue s) {
 
 }
 
-void queue_destroy (Queue s) {
+void queue_destroy(Queue s) {
     free(s->elements);
     free(s);
 }
