@@ -12,39 +12,37 @@ using namespace std;
 
 void maxProduct (int *a, int length) {
 
-      int max_product = -100000;
-      int max_running_product = 1;
-      int max_with_neg = 1;
+  int max_product = -100000;
+  int max_running_product = 1;
+  int max_with_neg = 1;
 
-      for (int i = 0; i < length; i++) {
-            if (a[i] > 0 && a[i] * max_running_product > max_product) {
-                max_product = max_running_product * a[i];
-            }
+  for (int i = 0; i < length; i++) {
+    if (a[i] > 0 && a[i] * max_running_product > max_product) {
+      max_product = max_running_product * a[i];
+    }
 
-            if (a[i] > 0)
-                max_running_product = max_running_product * a[i];
-            else
-                max_running_product = 1;
+    if (a[i] > 0)
+      max_running_product = max_running_product * a[i];
+    else
+      max_running_product = 1;
 
-            if (a[i] < 0 && max_with_neg < 0) {
-                if (a[i] * max_with_neg > max_product) {
-                    max_product = a[i] * max_with_neg;
-                    max_running_product = max_product;
-                }
-
-            }
-            if (a[i] == 0)
-                max_with_neg = 1;
-
-            if (abs(max_with_neg * a[i]) > abs(max_with_neg))
-                max_with_neg = a[i] * max_with_neg;
-
-
+    if (a[i] < 0 && max_with_neg < 0) {
+      if (a[i] * max_with_neg > max_product) {
+        max_product = a[i] * max_with_neg;
+        max_running_product = max_product;
       }
 
+    }
+    if (a[i] == 0)
+      max_with_neg = 1;
+    else
+      max_with_neg = a[i] * max_with_neg;
 
-    cout << max_product << endl;
-    //cout << max_with_neg << endl;
+  }
+
+
+  cout << max_product << endl;
+  //cout << max_with_neg << endl;
 
 }
 
