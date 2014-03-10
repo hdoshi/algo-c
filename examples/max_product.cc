@@ -31,7 +31,6 @@ void maxProduct (int *a, int length) {
         max_product = a[i] * max_with_neg;
         max_running_product = max_product;
       }
-
     }
     if (a[i] == 0)
       max_with_neg = 1;
@@ -39,7 +38,6 @@ void maxProduct (int *a, int length) {
       max_with_neg = a[i] * max_with_neg;
 
   }
-
 
   cout << max_product << endl;
   //cout << max_with_neg << endl;

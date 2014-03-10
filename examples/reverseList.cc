@@ -28,19 +28,18 @@ void print_list(link head) {
 }
 
 
-link reverse_list(link reversed, link rest) {
+link reverse_list(link prev, link cur) {
 
-  if (!rest) {
-    return reversed;
+  if (!cur) {
+    return prev;
   }
   else {
-    link cur = rest->next;
-    rest->next = reversed;
-    reversed = rest;
-    rest = cur;
-    return reverse_list(reversed, rest);
+    link next = cur->next;
+    cur->next = prev;
+    prev = cur;
+    cur = next;
+    return reverse_list(prev, cur);
   }
-
 }
 
 int main() {

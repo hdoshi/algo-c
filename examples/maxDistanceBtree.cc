@@ -10,7 +10,6 @@
 #include "utils.h"
 using namespace std;
 
-
 void print_btree(bnode root)
 {
 
@@ -40,10 +39,35 @@ void print_btree(bnode root)
       nxt_cnt = 0;
     }
   }
+}
 
+
+int height(bnode root)
+{
+  if (!root)
+    return 0;
+
+  return 1 + max(height(root->left), height(root->right));
 
 }
 
+
+int max_dist(bnode root) {
+    if (!root)
+      return 0;
+
+    int max_with_root = height(root->left) + height(root->right);
+
+    int left_max = max_dist(root->left);
+    int right_max = max_dist(root->right);
+
+    if (max_with_root > left_max)
+      return max(max_with_root, right_max);
+    else
+      return max(left_max, right_max);
+
+
+}
 
 int main() {
 
@@ -53,7 +77,7 @@ int main() {
   root->v = 0;
   bnode list[100];
   list[0] = root;
-  for (int i = 1; i < 16; i++) {
+  for (int i = 1; i < 31; i++) {
     bnode tmp = init_btree();
     tmp->v = i;
     bnode parent = list[ ((int) (i + 1) / 2) - 1];
@@ -65,9 +89,10 @@ int main() {
     list[i] = tmp;
 
   }
-
-  //Print tree by level
   print_btree(root);
+  cout<<"Max dist " << max_dist(root);
   free_btree(root);
+
+
 }
 
