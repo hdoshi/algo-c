@@ -29,7 +29,7 @@ void add_edge(graph g, int v, int w)
 
   tmp->next = (struct node *)malloc(sizeof (struct node));
   tmp->next->v = w;
-
+  tmp->next->next = NULL;
 /*  tmp = v_w; */
 /*  */
 /*  while (tmp->next) { */

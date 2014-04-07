@@ -66,11 +66,9 @@ int max_dist(bnode root) {
     else
       return max(left_max, right_max);
 
-
 }
 
 int main() {
-
 
   //Construct tree
   bnode root = init_btree();
@@ -93,6 +91,4 @@ int main() {
   cout<<"Max dist " << max_dist(root);
   free_btree(root);
 
-
 }
-

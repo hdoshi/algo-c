@@ -14,7 +14,7 @@ using namespace std;
 void print_btree(bnode root)
 {
 
-  queue <bnode> processing;
+  queue<bnode> processing;
   processing.push(root);
 
   bnode tmp;

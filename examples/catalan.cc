@@ -5,13 +5,11 @@
 
 void catalan(char *s, int close, int open, int index, int n)
 {
-
   if (close == n) {
     s[index] = '\0';
     printf("%s\n", s);
     return;
   }
-
 
   if (open < n) {
     s[index] = '(';
@@ -27,8 +25,6 @@ void catalan(char *s, int close, int open, int index, int n)
 
 
 int main() {
-
-
  int n;
  scanf("%d", &n);
  char *s = (char *)malloc((2*n + 1)*sizeof(char));
