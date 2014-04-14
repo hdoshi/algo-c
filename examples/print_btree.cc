@@ -45,6 +45,21 @@ void print_btree(bnode root)
 }
 
 
+
+void print_btree_paranthesis(bnode root) {
+
+  if (!root) {
+    return;
+  }
+  cout << " " << root->v;
+  if (root->left || root->right)
+    cout << " (";
+  print_btree_paranthesis(root->left);
+  print_btree_paranthesis(root->right);
+  if (root->left || root->right)
+    cout << " )";
+}
+
 int main() {
 
 
@@ -68,6 +83,9 @@ int main() {
 
   //Print tree by level
   print_btree(root);
+  cout << "(" ;
+  print_btree_paranthesis(root);
+  cout << " )" ;
   free_btree(root);
 }
 
