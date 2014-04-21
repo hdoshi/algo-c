@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 void catalan(char *s, int close, int open, int index, int n)
 {
   if (close == n) {
@@ -23,12 +22,10 @@ void catalan(char *s, int close, int open, int index, int n)
 
 }
 
-
 int main() {
- int n;
- scanf("%d", &n);
- char *s = (char *)malloc((2*n + 1)*sizeof(char));
- catalan(s, 0, 0, 0, n);
- free(s);
-
+  int n;
+  scanf("%d", &n);
+  char *s = (char *)malloc((2*n + 1)*sizeof(char));
+  catalan(s, 0, 0, 0, n);
+  free(s);
 }
