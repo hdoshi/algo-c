@@ -3,7 +3,6 @@
 #include <string.h>
 #include "../includes/utils.h"
 
-
 struct QueueNode {
     int capacity;
     void ** elements;
@@ -51,17 +50,3 @@ void queue_destroy(Queue s) {
     free(s->elements);
     free(s);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

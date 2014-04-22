@@ -66,5 +66,5 @@ void free_graph(graph g)
     }
   }
   free(g);
-  }
+}
 

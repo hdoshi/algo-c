@@ -72,9 +72,7 @@ int main() {
     print_list(head);
     printf("\n");
 
-
     head = swap_nodes(head);
-
 
     print_list(head);
 }

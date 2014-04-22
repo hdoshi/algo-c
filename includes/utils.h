@@ -44,3 +44,12 @@ struct bn {
 typedef struct bn *bnode;
 bnode init_btree();
 void free_btree(bnode);
+
+
+typedef struct tr * trie;
+
+trie init_trie();
+void trie_set(trie, const char *, int);
+int trie_get(trie, const char *);
+void trie_delete(trie, const char *);
+
