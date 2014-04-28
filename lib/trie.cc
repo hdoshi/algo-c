@@ -19,10 +19,10 @@ void trie_set(trie root, const char *key, int value) {
   for (size_t i = 0; i < len; i++) {
     char c = key[i];
     int index = c - 'a';
-    if (tmp->children[i] == NULL) {
-      tmp->children[i] = init_trie();
+    if (tmp->children[index] == NULL) {
+      tmp->children[index] = init_trie();
     }
-    tmp = tmp->children[i];
+    tmp = tmp->children[index];
   }
 
   if (tmp->v) {
@@ -37,10 +37,10 @@ int trie_get(trie root, const char *key) {
   for (size_t i = 0; i < len; i++) {
     char c = key[i];
     int index = c - 'a';
-    if (tmp->children[i] == NULL) {
+    if (tmp->children[index] == NULL) {
       return -1;
     }
-    tmp = tmp->children[i];
+    tmp = tmp->children[index];
   }
 
   if (tmp && tmp->v)
@@ -57,11 +57,11 @@ void trie_delete(trie root, const char *key) {
     char c = key[i];
     int index = c - 'a';
     if (tmp)
-      tmp = tmp->children[i];
+      tmp = tmp->children[index];
     else
       break;
   }
 
   if (tmp && tmp->v)
-    tmp->v = 0;;
+    tmp->v = 0;
 }
