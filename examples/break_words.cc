@@ -13,7 +13,6 @@ using namespace std;
 trie dict;
 
 void break_words(string input, string current) {
-
   if (!input.length()) {
     cout << current << endl;
   }

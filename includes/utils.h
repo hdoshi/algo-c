@@ -37,6 +37,7 @@ void free_graph(graph g);
 
 struct bn {
   int v;
+  int left_count;
   struct bn *left;
   struct bn *right;
 };
