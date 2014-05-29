@@ -6,7 +6,7 @@
 #include <string>
 #include <utility>
 #include <queue>
-#include <map>
+#include <unordered_map>
 #include <math.h>
 #include "utils.h"
 using namespace std;
@@ -40,9 +40,36 @@ void generate_subsets(string l) {
   }
 }
 
+
+void generate_subsets_graph(string l) {
+
+  unordered_map<string, bool> seen;
+  queue<string> process;
+
+  process.push(l);
+
+  while (!process.empty()) {
+    string cur = process.front();
+    process.pop();
+    if (seen.find(cur) == seen.end()) {
+      size_t len = cur.length();
+      cout << cur << endl;
+      for (size_t i = 0; i < len; i++) {
+        string t = cur;
+        string p = t.erase(i, 1);
+        process.push(p);
+      }
+      seen[cur] = true;
+    }
+  }
+}
+
 int main() {
   string letters = "abcdef";
-  generate_subsets(letters);
-  generate_subsets("abc");
-  generate_subsets("zabck");
+  //generate_subsets(letters);
+  generate_subsets_graph(letters);
+  //generate_subsets("abc");
+  generate_subsets_graph("abc");
+  //generate_subsets("zabck");
+  generate_subsets_graph("zabck");
 }
