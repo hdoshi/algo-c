@@ -11,6 +11,7 @@ graph create_graph(int num_vertex)
   for (int i = 0; i < num_vertex; i++) {
     g->vertices[i] = (struct node *)malloc(sizeof(struct node));
     g->vertices[i]->v = i;
+    g->vertices[i]->next = NULL;
   }
   return g;
 }
