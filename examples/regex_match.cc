@@ -83,11 +83,9 @@ bool match(string in, string re) {
 
 
 int main() {
-
-
     cout << match("ab" , "ab*") << endl;
     cout << match("ab" , "ac*") << endl;
     cout << match("ad" , "ab*d") << endl;
     cout << match("ad" , "abd") << endl;
-
+    cout << match("ad" , ".*") << endl;
 }
